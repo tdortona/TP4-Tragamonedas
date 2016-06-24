@@ -6,7 +6,7 @@ public class Tragamonedas {
 	Tambor segundoTambor;
 	Tambor tercerTambor;
 	
-	FixNumberGenerator newGenerator = new FixNumberGenerator(5);
+	FixNumberGenerator newGenerator = new FixNumberGenerator(1);
 	
 	public Tragamonedas(){
 		this.primerTambor = new Tambor(newGenerator);
@@ -21,16 +21,9 @@ public class Tragamonedas {
 	}
 
 	public Boolean entregaPremio(){
-		Integer posicionIzquierda = this.primerTambor.getPosicion();
-		Integer posicionCentro = this.segundoTambor.getPosicion();
-		Integer posicionDerecha = this.tercerTambor.getPosicion();
-		
-		if(posicionIzquierda == posicionCentro && posicionCentro == posicionDerecha){
-			return true;
-		}
-		else{
-			return false;
-		}
+
+		return this.primerTambor.getPosicion() == this.segundoTambor.getPosicion() &&
+			   this.segundoTambor.getPosicion() == this.tercerTambor.getPosicion();
 			
 	}
 	
